@@ -1,5 +1,5 @@
 {
-	description = "Unofficial Google Photos Desktop GUI Client";
+	description = "A Gnome frontend to rclone to (auto)mount and sync your data";
 
 	inputs = {
 		flake-parts = { type="github"; owner="hercules-ci"; repo="flake-parts"; };
@@ -14,11 +14,11 @@
 		flake-parts.lib.mkFlake { inherit inputs; } {
 			systems = ["x86_64-linux"];
 			perSystem = { config, self', inputs', pkgs, system, ... }: {
-				packages = {
-					default = self'.packages.mtsync;
-					mtsync = pkgs.stdenv.mkDerivation {
-						name = "mtsync";
-						src = inputs.mtsync;
+				packages = let pkgName = "mtsync"; in {
+					default = self'.packages.${pkgName};
+					${pkgName} = pkgs.stdenv.mkDerivation {
+						name = pkgName;
+						src = inputs.${pkgName};
 						
 						nativeBuildInputs = with pkgs; [ dpkg autoPatchelfHook makeWrapper ];
 						buildInputs = with pkgs; [ gtkmm4 libadwaita libsoup_3 glib cairo stdenv.cc.cc.lib ];
@@ -33,7 +33,14 @@
 								mv ./bin/ ./share/ $out/
 						'';
 
-						postInstall = ''wrapProgram $out/bin/mtsync --prefix PATH : ${pkgs.rclone}/bin'';
+						postInstall = ''wrapProgram $out/bin/${pkgName} --prefix PATH : ${pkgs.rclone}/bin'';
+
+						meta = {
+							description = "A Gnome frontend to rclone to (auto)mount and sync your data";
+							homepage = "https://github.com/gavindi/"+pkgName;
+							license = pkgs.lib.licenses.gpl2;
+							mainProgram = pkgName;
+						};
 					};
 				};
 			};
