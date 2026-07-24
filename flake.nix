@@ -20,7 +20,7 @@
 						name = "mtsync";
 						src = inputs.mtsync;
 						
-						nativeBuildInputs = with pkgs; [ dpkg autoPatchelfHook ];
+						nativeBuildInputs = with pkgs; [ dpkg autoPatchelfHook makeWrapper ];
 						buildInputs = with pkgs; [ gtkmm4 libadwaita libsoup_3 glib cairo stdenv.cc.cc.lib ];
 						
 						unpackPhase = ''
@@ -32,6 +32,8 @@
 								mkdir -p $out/
 								mv ./bin/ ./share/ $out/
 						'';
+
+						postInstall = ''wrapProgram $out/bin/mtsync --prefix PATH : ${pkgs.rclone}/bin'';
 					};
 				};
 			};
