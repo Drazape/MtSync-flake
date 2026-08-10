@@ -13,7 +13,7 @@
 	outputs = inputs@{ flake-parts, ... }:
 		flake-parts.lib.mkFlake { inherit inputs; } {
 			systems = ["x86_64-linux"];
-			perSystem = { config, self', inputs', pkgs, system, ... }: {
+			perSystem = { config, self', inputs', pkgs, lib, system, ... }: {
 				packages = let pkgName = "mtsync"; in {
 					default = self'.packages.${pkgName};
 					${pkgName} = pkgs.stdenvNoCC.mkDerivation {
@@ -38,7 +38,7 @@
 						meta = {
 							description = "A Gnome frontend to rclone to (auto)mount and sync your data";
 							homepage = "https://github.com/gavindi/"+pkgName;
-							license = pkgs.lib.licenses.gpl2;
+							license = lib.licenses.gpl2;
 							mainProgram = pkgName;
 						};
 					};
