@@ -16,12 +16,12 @@
 			perSystem = { config, self', inputs', pkgs, system, ... }: {
 				packages = let pkgName = "mtsync"; in {
 					default = self'.packages.${pkgName};
-					${pkgName} = pkgs.stdenv.mkDerivation {
+					${pkgName} = pkgs.stdenvNoCC.mkDerivation {
 						name = pkgName;
 						src = inputs.${pkgName};
 						
 						nativeBuildInputs = with pkgs; [ dpkg autoPatchelfHook makeWrapper ];
-						buildInputs = with pkgs; [ gtkmm4 libadwaita libsoup_3 glib cairo stdenv.cc.cc.lib ];
+						buildInputs = with pkgs; [ gtkmm4 libadwaita libsoup_3 glib cairo stdenvNoCC.cc.cc.lib ];
 						
 						unpackPhase = ''
 								dpkg --extract -- $src ./tree/
