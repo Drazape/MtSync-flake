@@ -5,7 +5,7 @@
 		flake-parts = { type="github"; owner="hercules-ci"; repo="flake-parts"; };
 		nixpkgs = { type="github"; owner="NixOS"; repo="nixpkgs"; ref="nixpkgs-unstable"; };
 		mtsync = {
-			url = "https://github.com/gavindi/mtsync/releases/latest/download/mtsync_0.9.13_ubuntu26.04_x86_64.deb";
+			url = "https://github.com/gavindi/MtSync/releases/download/0.9.14/mtsync_0.9.14_ubuntu26.04_x86_64.deb";
 			flake = false;
 		};
 	};
@@ -13,7 +13,7 @@
 	outputs = inputs@{ flake-parts, ... }:
 		flake-parts.lib.mkFlake { inherit inputs; } {
 			systems = ["x86_64-linux"];
-			perSystem = { config, self', inputs', pkgs, lib, system, ... }: {
+			perSystem = { self', pkgs, lib, ... }: {
 				packages = let pkgName = "mtsync"; in {
 					default = self'.packages.${pkgName};
 					${pkgName} = pkgs.stdenvNoCC.mkDerivation {
