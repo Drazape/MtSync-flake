@@ -5,11 +5,11 @@
         "nixpkgs-lib": "nixpkgs-lib"
       },
       "locked": {
-        "lastModified": 1788306937,
-        "narHash": "sha256-lbrI1UYVpFgKSsyrU9oeF7FHfnu8nLD9ja0ou9f2rxk=",
+        "lastModified": 1788450739,
+        "narHash": "sha256-glZLQlzIn1fXH6PazR2iUmTo7kzzyYSshrWhLS9TqCU=",
         "owner": "hercules-ci",
         "repo": "flake-parts",
-        "rev": "f16b25b8c3d2809b87925d0b76652d7821a75c68",
+        "rev": "31729ca8cbdb4fa927b34e5f4353e6a83f39e993",
         "type": "github"
       },
       "original": {
@@ -21,22 +21,22 @@
     "mtsync": {
       "flake": false,
       "locked": {
-        "narHash": "sha256-AXdkgfXYXPm6XKbohTKnoxijVK7bTo5YlTO7CH3KVyA=",
+        "narHash": "sha256-2QJmT0Chwml8XvqoPUsTmIj1Y1ObkYULy8KyIDwhm+Q=",
         "type": "file",
-        "url": "https://github.com/gavindi/MtSync/releases/download/0.9.14/mtsync_0.9.14_ubuntu26.04_x86_64.deb"
+        "url": "https://github.com/gavindi/MtSync/releases/download/0.9.17/mtsync_0.9.17_ubuntu26.04_x86_64.deb"
       },
       "original": {
         "type": "file",
-        "url": "https://github.com/gavindi/MtSync/releases/download/0.9.14/mtsync_0.9.14_ubuntu26.04_x86_64.deb"
+        "url": "https://github.com/gavindi/MtSync/releases/download/0.9.17/mtsync_0.9.17_ubuntu26.04_x86_64.deb"
       }
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1788372231,
-        "narHash": "sha256-7aqErvrAEz/5OcPA5p3M+tVOqeYc4oJXkNIPXfCqxAw=",
+        "lastModified": 1789012029,
+        "narHash": "sha256-1CBkBf+Nhggykzlx0jvXrj5rk20btl+tK8Fa8Ml/BL4=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "9387b3fcc0c23c86661636da63faabad4235a0a6",
+        "rev": "d5dfd8e6716dde34398bc14bc87c10dece9c8c68",
         "type": "github"
       },
       "original": {
